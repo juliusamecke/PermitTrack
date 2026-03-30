@@ -43,11 +43,6 @@ const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 import { useState, useEffect } from "react";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-// ── HIER DEINE SUPABASE CREDENTIALS EINTRAGEN ──────────────
-const SUPABASE_URL  = "https://DEIN-PROJEKT.supabase.co";
-const SUPABASE_KEY  = "DEIN-ANON-PUBLIC-KEY";
-// ───────────────────────────────────────────────────────────
-
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ── FARBEN & KONSTANTEN ────────────────────────────────────
