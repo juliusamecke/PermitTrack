@@ -77,7 +77,7 @@ const DOKUMENT_KATEGORIEN = [
 const ALLE_DOKUMENTE = DOKUMENT_KATEGORIEN.flatMap(k => k.dokumente);
 
 const STATUS_META = {
-  Vorbereitung:        { bg: "#1e293b", text: "#94a3b8", dot: "#475569" },
+  Vorbereitung:        { bg: "#1e293b", text: "#94a3b8", dot: "#8898b2" },
   Eingereicht:         { bg: "#1e3a5f", text: "#60a5fa", dot: "#3b82f6" },
   "Rückfrage Behörde": { bg: "#3b2a0a", text: "#fbbf24", dot: "#f59e0b" },
   Genehmigt:           { bg: "#052e16", text: "#34d399", dot: "#10b981" },
@@ -101,7 +101,7 @@ function getFristInfo(frist) {
 
 const base = { fontFamily: "'DM Sans', sans-serif" };
 const inp  = (extra = {}) => ({ ...base, width: "100%", marginTop: 4, padding: "9px 12px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: 13, outline: "none", boxSizing: "border-box", ...extra });
-const lbl  = { fontSize: 10, textTransform: "uppercase", letterSpacing: 2, color: "#475569" };
+const lbl  = { fontSize: 10, textTransform: "uppercase", letterSpacing: 2, color: "#8898b2" };
 
 // ── DOKUMENTE AUSWÄHLEN MODAL ──────────────────────────────
 function DokumenteModal({ vorhandene, onSave, onClose }) {
@@ -149,10 +149,10 @@ function DokumenteModal({ vorhandene, onSave, onClose }) {
         <div style={{ padding: "18px 24px", borderBottom: "1px solid rgba(255,255,255,0.07)", flexShrink: 0 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
             <h2 style={{ margin: 0, color: "#fff", fontSize: 16, fontFamily: "'Playfair Display', serif" }}>Unterlagen auswählen</h2>
-            <button onClick={onClose} style={{ fontSize: 22, color: "#64748b", background: "none", border: "none", cursor: "pointer" }}>×</button>
+            <button onClick={onClose} style={{ fontSize: 22, color: "#8898b2", background: "none", border: "none", cursor: "pointer" }}>×</button>
           </div>
           <input value={suche} onChange={e => setSuche(e.target.value)} placeholder="Dokument suchen…" style={inp({ marginTop: 0 })} />
-          <p style={{ margin: "8px 0 0", fontSize: 11, color: "#475569" }}>{ausgewaehlt.size} Dokumente ausgewählt</p>
+          <p style={{ margin: "8px 0 0", fontSize: 11, color: "#8898b2" }}>{ausgewaehlt.size} Dokumente ausgewählt</p>
         </div>
 
         {/* Scrollbare Liste */}
@@ -175,7 +175,7 @@ function DokumenteModal({ vorhandene, onSave, onClose }) {
           {/* Standardkategorien */}
           {gefilterteKats.map(k => (
             <div key={k.kategorie} style={{ marginBottom: 16 }}>
-              <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 3, color: "#475569", marginBottom: 8 }}>{k.kategorie}</div>
+              <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 3, color: "#8898b2", marginBottom: 8 }}>{k.kategorie}</div>
               {k.dokumente.map(d => (
                 <label key={d} style={{ display: "flex", alignItems: "center", gap: 10, padding: "7px 10px", borderRadius: 8, cursor: "pointer", marginBottom: 4, background: ausgewaehlt.has(d) ? "rgba(59,130,246,0.08)" : "rgba(255,255,255,0.03)" }}>
                   <input type="checkbox" checked={ausgewaehlt.has(d)} onChange={() => toggle(d)}
@@ -189,7 +189,7 @@ function DokumenteModal({ vorhandene, onSave, onClose }) {
 
         {/* Footer: eigenes Dokument + Speichern */}
         <div style={{ padding: "12px 24px", borderTop: "1px solid rgba(255,255,255,0.07)", flexShrink: 0 }}>
-          <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 2, color: "#475569", marginBottom: 8 }}>Eigenes Dokument hinzufügen</div>
+          <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 2, color: "#8898b2", marginBottom: 8 }}>Eigenes Dokument hinzufügen</div>
           <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
             <input value={eigenes} onChange={e => setEigenes(e.target.value)} onKeyDown={e => e.key === "Enter" && eigenesHinzufuegen()}
               placeholder="z.B. Gutachten Bodenmechanik…" style={inp({ marginTop: 0, flex: 1 })} />
@@ -197,7 +197,7 @@ function DokumenteModal({ vorhandene, onSave, onClose }) {
               style={{ padding: "9px 16px", borderRadius: 8, border: "none", cursor: "pointer", background: "rgba(59,130,246,0.2)", color: "#60a5fa", fontWeight: 600, flexShrink: 0 }}>+</button>
           </div>
           <div style={{ display: "flex", gap: 10 }}>
-            <button onClick={onClose} style={{ flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer", background: "rgba(255,255,255,0.06)", color: "#64748b" }}>Abbrechen</button>
+            <button onClick={onClose} style={{ flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer", background: "rgba(255,255,255,0.06)", color: "#8898b2" }}>Abbrechen</button>
             <button onClick={speichern} style={{ flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer", background: "linear-gradient(135deg,#3b6fd4,#2a4fa0)", color: "#fff", fontWeight: 600 }}>
               Speichern ({ausgewaehlt.size})
             </button>
@@ -244,7 +244,7 @@ function AuthScreen() {
         <div style={{ textAlign: "center", marginBottom: 32 }}>
           <div style={{ width: 52, height: 52, borderRadius: 14, background: "linear-gradient(135deg,#3b6fd4,#2a4fa0)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, margin: "0 auto 14px" }}>🏛</div>
           <div style={{ fontSize: 22, fontWeight: 600, color: "#fff", fontFamily: "'Playfair Display', serif" }}>PermitTrack</div>
-          <div style={{ fontSize: 12, color: "#475569", marginTop: 4 }}>Baugenehmigungen einfach tracken</div>
+          <div style={{ fontSize: 12, color: "#8898b2", marginTop: 4 }}>Baugenehmigungen einfach tracken</div>
         </div>
         <div style={{ background: "#0f1623", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 16, padding: 28 }}>
           <div style={{ display: "flex", gap: 8, marginBottom: 24 }}>
@@ -252,7 +252,7 @@ function AuthScreen() {
               <button key={m} onClick={() => { setMode(m); setErr(""); setMsg(""); }}
                 style={{ flex: 1, padding: "8px 0", borderRadius: 8, border: "none", cursor: "pointer", fontSize: 13, fontWeight: 500, ...base,
                   background: mode === m ? "rgba(59,111,212,0.25)" : "rgba(255,255,255,0.05)",
-                  color: mode === m ? "#7ba3f5" : "#64748b" }}>
+                  color: mode === m ? "#7ba3f5" : "#8898b2" }}>
                 {m === "login" ? "Anmelden" : "Registrieren"}
               </button>
             ))}
@@ -281,7 +281,7 @@ function AuthScreen() {
             {loading ? "Laden…" : mode === "login" ? "Anmelden" : mode === "signup" ? "Account erstellen" : "Link senden"}
           </button>
           {mode === "login" && (
-            <button onClick={() => setMode("reset")} style={{ width: "100%", marginTop: 10, padding: "8px 0", background: "none", border: "none", color: "#475569", fontSize: 12, cursor: "pointer" }}>
+            <button onClick={() => setMode("reset")} style={{ width: "100%", marginTop: 10, padding: "8px 0", background: "none", border: "none", color: "#8898b2", fontSize: 12, cursor: "pointer" }}>
               Passwort vergessen?
             </button>
           )}
@@ -340,10 +340,10 @@ function ProjectModal({ project, onClose, onUpdate }) {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
               <div>
                 <h2 style={{ margin: 0, color: "#fff", fontSize: 17, fontFamily: "'Playfair Display', serif" }}>{project.name}</h2>
-                <p style={{ margin: "4px 0 0", color: "#64748b", fontSize: 12 }}>{project.gemeinde} · {project.bauamt}</p>
-                {project.kontakt && <p style={{ margin: "2px 0 0", color: "#64748b", fontSize: 12 }}>📞 {project.kontakt}</p>}
+                <p style={{ margin: "4px 0 0", color: "#8898b2", fontSize: 12 }}>{project.gemeinde} · {project.bauamt}</p>
+                {project.kontakt && <p style={{ margin: "2px 0 0", color: "#8898b2", fontSize: 12 }}>📞 {project.kontakt}</p>}
               </div>
-              <button onClick={onClose} style={{ fontSize: 22, color: "#64748b", background: "none", border: "none", cursor: "pointer" }}>×</button>
+              <button onClick={onClose} style={{ fontSize: 22, color: "#8898b2", background: "none", border: "none", cursor: "pointer" }}>×</button>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, alignItems: "center" }}>
               <select value={status} onChange={e => { setStatus(e.target.value); save({ status: e.target.value }); }}
@@ -351,15 +351,15 @@ function ProjectModal({ project, onClose, onUpdate }) {
                 {Object.keys(STATUS_META).map(s => <option key={s}>{s}</option>)}
               </select>
               {ampel && <span style={{ fontSize: 12, padding: "4px 10px", borderRadius: 20, background: ampel.bg, color: ampel.color }}>⏱ {ampel.label}</span>}
-              {project.wiedervorlage && <span style={{ fontSize: 12, padding: "4px 10px", borderRadius: 20, background: "rgba(255,255,255,0.06)", color: "#64748b" }}>Wiedervorlage: {project.wiedervorlage}</span>}
-              {saving && <span style={{ fontSize: 11, color: "#475569" }}>Speichern…</span>}
+              {project.wiedervorlage && <span style={{ fontSize: 12, padding: "4px 10px", borderRadius: 20, background: "rgba(255,255,255,0.06)", color: "#8898b2" }}>Wiedervorlage: {project.wiedervorlage}</span>}
+              {saving && <span style={{ fontSize: 11, color: "#8898b2" }}>Speichern…</span>}
             </div>
           </div>
 
           {/* Dokumente */}
           <div style={{ padding: "16px 24px", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-              <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 3, color: "#334155" }}>
+              <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 3, color: "#8b9cb8" }}>
                 Unterlagen ({docs.filter(d => d.status === "Eingereicht").length}/{docs.length})
               </div>
               <button onClick={() => setShowDoks(true)}
@@ -367,7 +367,7 @@ function ProjectModal({ project, onClose, onUpdate }) {
                 + Bearbeiten
               </button>
             </div>
-            {docs.length === 0 && <p style={{ color: "#334155", fontSize: 13 }}>Noch keine Unterlagen – klicke auf „Bearbeiten".</p>}
+            {docs.length === 0 && <p style={{ color: "#8b9cb8", fontSize: 13 }}>Noch keine Unterlagen – klicke auf „Bearbeiten".</p>}
             {docs.map((d, i) => {
               const ds = DOK_STYLE[d.status] || DOK_STYLE["Fehlend"];
               return (
@@ -377,17 +377,17 @@ function ProjectModal({ project, onClose, onUpdate }) {
                 </div>
               );
             })}
-            {docs.length > 0 && <p style={{ fontSize: 11, color: "#334155", marginTop: 4 }}>↑ Klick auf Status zum Wechseln</p>}
+            {docs.length > 0 && <p style={{ fontSize: 11, color: "#8b9cb8", marginTop: 4 }}>↑ Klick auf Status zum Wechseln</p>}
           </div>
 
           {/* Notizen */}
           <div style={{ padding: "16px 24px" }}>
-            <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 3, color: "#334155", marginBottom: 10 }}>Behördenkommunikation</div>
-            {(project.notizen || []).length === 0 && <p style={{ color: "#334155", fontSize: 13, marginBottom: 10 }}>Noch keine Notizen.</p>}
+            <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 3, color: "#8b9cb8", marginBottom: 10 }}>Behördenkommunikation</div>
+            {(project.notizen || []).length === 0 && <p style={{ color: "#8b9cb8", fontSize: 13, marginBottom: 10 }}>Noch keine Notizen.</p>}
             {(project.notizen || []).map((n, i) => (
               <div key={i} style={{ padding: "10px 12px", borderRadius: 8, background: "rgba(255,255,255,0.04)", marginBottom: 6 }}>
                 <p style={{ margin: 0, color: "#e2e8f0", fontSize: 13 }}>{n.text}</p>
-                <p style={{ margin: "4px 0 0", color: "#475569", fontSize: 11 }}>{n.datum}</p>
+                <p style={{ margin: "4px 0 0", color: "#8898b2", fontSize: 11 }}>{n.datum}</p>
               </div>
             ))}
             <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
@@ -432,7 +432,7 @@ function NewProjectModal({ onClose, onCreate }) {
         <div style={{ ...base, width: "100%", maxWidth: 440, borderRadius: 16, padding: 24, background: "#0f1623", border: "1px solid rgba(255,255,255,0.08)", maxHeight: "90vh", overflowY: "auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
             <h2 style={{ margin: 0, color: "#fff", fontSize: 16, fontFamily: "'Playfair Display', serif" }}>Neues Projekt</h2>
-            <button onClick={onClose} style={{ fontSize: 22, color: "#64748b", background: "none", border: "none", cursor: "pointer" }}>×</button>
+            <button onClick={onClose} style={{ fontSize: 22, color: "#8898b2", background: "none", border: "none", cursor: "pointer" }}>×</button>
           </div>
           {[["Projektname *","name","Wohnhaus Musterstraße 12"],["Gemeinde *","gemeinde","München"],["Bauamt","bauamt","Bauordnungsamt München"],["Kontakt","kontakt","Fr. Huber – 089/233-123"]].map(([l,k,ph]) => (
             <div key={k} style={{ marginBottom: 12 }}>
@@ -451,13 +451,13 @@ function NewProjectModal({ onClose, onCreate }) {
           <div style={{ marginBottom: 16 }}>
             <label style={lbl}>Unterlagen</label>
             <button onClick={() => setShowDoks(true)}
-              style={{ width: "100%", marginTop: 6, padding: "10px 12px", borderRadius: 8, border: "1px dashed rgba(59,130,246,0.3)", background: "rgba(59,130,246,0.06)", color: selectedDoks.size > 0 ? "#60a5fa" : "#475569", cursor: "pointer", fontSize: 13, textAlign: "left" }}>
+              style={{ width: "100%", marginTop: 6, padding: "10px 12px", borderRadius: 8, border: "1px dashed rgba(59,130,246,0.3)", background: "rgba(59,130,246,0.06)", color: selectedDoks.size > 0 ? "#60a5fa" : "#8898b2", cursor: "pointer", fontSize: 13, textAlign: "left" }}>
               {selectedDoks.size > 0 ? `✓  ${selectedDoks.size} Unterlagen ausgewählt` : "+ Unterlagen auswählen"}
             </button>
           </div>
           {err && <div style={{ padding: "8px 12px", borderRadius: 8, background: "#2d0a0a", color: "#f87171", fontSize: 13, marginBottom: 10 }}>{err}</div>}
           <div style={{ display: "flex", gap: 10 }}>
-            <button onClick={onClose} style={{ flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer", background: "rgba(255,255,255,0.06)", color: "#64748b" }}>Abbrechen</button>
+            <button onClick={onClose} style={{ flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer", background: "rgba(255,255,255,0.06)", color: "#8898b2" }}>Abbrechen</button>
             <button onClick={handle} disabled={loading} style={{ flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer", background: "linear-gradient(135deg,#3b6fd4,#2a4fa0)", color: "#fff", fontWeight: 600 }}>
               {loading ? "Erstellen…" : "Erstellen"}
             </button>
@@ -498,7 +498,7 @@ export default function App() {
       .then(({ data }) => { setProjects(data || []); setLoading(false); });
   }, [session]);
 
-  if (!authReady) return <div style={{ minHeight: "100vh", background: "#07090f", display: "flex", alignItems: "center", justifyContent: "center", color: "#475569", ...base }}>Laden…</div>;
+  if (!authReady) return <div style={{ minHeight: "100vh", background: "#07090f", display: "flex", alignItems: "center", justifyContent: "center", color: "#8898b2", ...base }}>Laden…</div>;
   if (!session)   return <AuthScreen />;
 
   const stats = {
@@ -521,8 +521,8 @@ export default function App() {
           <span style={{ fontSize: 10, padding: "2px 8px", borderRadius: 10, background: "rgba(59,111,212,0.15)", color: "#7ba3f5" }}>Beta</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 12, color: "#475569" }}>{session.user.email}</span>
-          <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 12, padding: "5px 12px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.1)", background: "none", color: "#64748b", cursor: "pointer" }}>Abmelden</button>
+          <span style={{ fontSize: 12, color: "#8898b2" }}>{session.user.email}</span>
+          <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 12, padding: "5px 12px", borderRadius: 8, border: "1px solid rgba(255,255,255,0.1)", background: "none", color: "#8898b2", cursor: "pointer" }}>Abmelden</button>
           <button onClick={() => setShowNew(true)} style={{ fontSize: 13, padding: "6px 14px", borderRadius: 8, border: "none", background: "linear-gradient(135deg,#3b6fd4,#2a4fa0)", color: "#fff", cursor: "pointer", fontWeight: 500 }}>+ Neues Projekt</button>
         </div>
       </div>
@@ -536,7 +536,7 @@ export default function App() {
             { label: "Überfällig", val: stats.kritisch,  color: stats.kritisch > 0 ? "#ef4444" : "#34d399" },
           ].map(s => (
             <div key={s.label} style={{ padding: "16px 18px", borderRadius: 12, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-              <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 2, color: "#334155", marginBottom: 6 }}>{s.label}</div>
+              <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 2, color: "#8b9cb8", marginBottom: 6 }}>{s.label}</div>
               <div style={{ fontSize: 28, fontWeight: 600, color: s.color, fontFamily: "'Playfair Display', serif" }}>{s.val}</div>
             </div>
           ))}
@@ -548,16 +548,16 @@ export default function App() {
               style={{ fontSize: 12, padding: "5px 14px", borderRadius: 20, cursor: "pointer",
                 border: filter === f ? "1px solid rgba(59,111,212,0.4)" : "1px solid transparent",
                 background: filter === f ? "rgba(59,111,212,0.25)" : "rgba(255,255,255,0.05)",
-                color: filter === f ? "#7ba3f5" : "#64748b" }}>
+                color: filter === f ? "#7ba3f5" : "#8898b2" }}>
               {f}
             </button>
           ))}
         </div>
 
         {loading ? (
-          <div style={{ textAlign: "center", padding: 60, color: "#334155" }}>Projekte werden geladen…</div>
+          <div style={{ textAlign: "center", padding: 60, color: "#8b9cb8" }}>Projekte werden geladen…</div>
         ) : filtered.length === 0 ? (
-          <div style={{ textAlign: "center", padding: 60, color: "#334155" }}>
+          <div style={{ textAlign: "center", padding: 60, color: "#8b9cb8" }}>
             <div style={{ fontSize: 36, marginBottom: 10 }}>🏛</div>
             <div>{filter === "Alle" ? "Noch keine Projekte – erstelle dein erstes!" : "Keine Projekte in dieser Kategorie."}</div>
           </div>
@@ -582,13 +582,13 @@ export default function App() {
                       {p.status}
                     </span>
                   </div>
-                  <div style={{ fontSize: 12, color: "#475569", marginBottom: 10 }}>{p.gemeinde} · {p.bauamt || "–"}</div>
+                  <div style={{ fontSize: 12, color: "#8898b2", marginBottom: 10 }}>{p.gemeinde} · {p.bauamt || "–"}</div>
                   {docs.length > 0 && (
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <div style={{ flex: 1, height: 4, borderRadius: 4, background: "rgba(255,255,255,0.08)" }}>
                         <div style={{ height: 4, borderRadius: 4, width: `${prog}%`, background: prog === 100 ? "#34d399" : "linear-gradient(90deg,#3b6fd4,#7ba3f5)" }} />
                       </div>
-                      <span style={{ fontSize: 11, color: "#475569", whiteSpace: "nowrap" }}>{einge}/{docs.length} Dok.</span>
+                      <span style={{ fontSize: 11, color: "#8898b2", whiteSpace: "nowrap" }}>{einge}/{docs.length} Dok.</span>
                     </div>
                   )}
                 </div>
